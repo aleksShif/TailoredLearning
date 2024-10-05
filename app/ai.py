@@ -1,7 +1,6 @@
 import os
 from openai import OpenAI
 
-
 def getQuestion(role,prompt):
     Question = client.chat.completions.create(
         model="gpt-3.5-turbo",
