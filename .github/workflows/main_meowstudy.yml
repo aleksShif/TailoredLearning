@@ -48,13 +48,15 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    env:
+      FLASK_APP: _init_
+      FLASK_ENV: development
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
           name: python-app
-
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
