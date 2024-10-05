@@ -49,7 +49,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     env:
-      FLASK_APP: app
+      FLASK_APP: _init_
       FLASK_ENV: development
 
     steps:
