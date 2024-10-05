@@ -22,7 +22,7 @@ def db_table_inits():
 def create_user(username, password):
     c = db_connect()
     c.execute('INSERT INTO users values (?,?)', (username, password))
-    db.close()
+    db_close()
 
 def check_user_exists(username): 
     c = db_connect()
@@ -30,3 +30,12 @@ def check_user_exists(username):
     user = c.fetchone() 
     db_close()
     return bool(user)
+
+def verify_login(username, password):
+    c = db_connect()
+    c.execute('SELECT username,password FROM users WHERE username=? AND password=?', (username, password))
+    user = c.fetchone()
+    db_close()
+    if user:
+        return True
+    return False

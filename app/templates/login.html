@@ -30,11 +30,13 @@
 
 <body>
     <div class="container">
-        <span class="container">
+        {% if status == 'error' %}
+        The wrong username or password was entered.
+        {% endif %}
         <form class="log-in-form" action="/auth/login" method="POST">
             <h4 class="text-center">Sign in</h4>
             <label>Username
-              <input type="username" placeholder="username">
+              <input type="text" placeholder="Username">
             </label>
             <label>Password
               <input type="password" placeholder="Password">
@@ -42,9 +44,8 @@
             <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
             <p><input type="submit" class="button expanded" value="Log in"></input></p>
             <p class="text-center"><a href="#">Forgot your password?</a></p>
-            <p class="text-center"><a href="/signup">Sign Up</a></p>
+            <p class="text-center"><a href="/signup">Don't have an account? Sign up here!</a></p>
           </form>
-        </span>
     </div>
 </body>
 </html>
