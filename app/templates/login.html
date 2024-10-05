@@ -6,15 +6,18 @@
     <style>
         .log-in-form {
             border: 3.5px solid rgb(31, 111, 120);
-            padding: 2rem;
-            border-radius: 0;
+            padding: 1rem;
+            border-radius: 1;
             box-shadow: 10px rgba(31, 111, 120,0.5);
-            margin:auto;
+            margin-top: 2rem;
+            padding-left: 2rem;
+            padding-right:2rem;
+            background-color:#3baea0; 
         }
         .container{
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center;            
         }
 
     </style>
@@ -30,11 +33,10 @@
 
 <body>
     <div class="container">
-        <span class="container">
         <form class="log-in-form" action="/auth/login" method="POST">
             <h4 class="text-center">Sign in</h4>
             <label>Username
-              <input type="username" placeholder="username">
+              <input type="text" placeholder="username">
             </label>
             <label>Password
               <input type="password" placeholder="Password">
@@ -44,7 +46,6 @@
             <p class="text-center"><a href="#">Forgot your password?</a></p>
             <p class="text-center"><a href="/signup">Sign Up</a></p>
           </form>
-        </span>
     </div>
 </body>
 </html>
