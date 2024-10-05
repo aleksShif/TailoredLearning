@@ -1,6 +1,6 @@
 import os
 from openai import OpenAI
-OpenAI.api_key = ''
+
 
 def getQuestion(role,prompt):
     Question = client.chat.completions.create(
