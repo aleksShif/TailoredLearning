@@ -18,3 +18,23 @@
     color:#3baea0;  
 }
 
+.top-bar, .top-bar ul, .top-bar-left, .menu-text, .menu {
+	background-color: rgb(25, 222, 229);
+}
+
+a.nav-link:link {
+	color: hsl(290, 73%, 45%);
+	text-decoration: none;
+  }
+  a.nav-link:visited {
+	color: hsl(290, 73%, 45%);
+	text-decoration: none;
+  }
+  a.nav-link:hover {
+	color: #fb3f00;
+	text-decoration: none;
+  }
+  a.nav-link:active {
+	color: #fb3f00;
+	text-decoration: none;
+	}
