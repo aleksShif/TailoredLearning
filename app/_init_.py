@@ -11,11 +11,21 @@ def home():
     #     return redirect('/login')
     return render_template('homepage.html') 
 
+@app.route('/signup', methods=['GET'])
+def signup(): 
+    if 'username' in session: 
+        return redirect('/')
+    return render_template('signup.html')
+
 @app.route('/login', methods=['GET'])
 def login():
-    # if 'username' in session: 
-    #     if not db.check_user_exists(session['username']): 
-    #         return redirect('/logout')
-    #     return redirect('/')
+    if 'username' in session: 
+        if not db.check_user_exists(session['username']): 
+            return redirect('/logout')
+        return redirect('/')
     return render_template("login.html")
-    
+
+@app.route('/logout')
+def logout():
+    session.pop('username')
+    return redirect('/')
