@@ -1,3 +1,4 @@
+# make sure to pip install flask first
 from flask import Flask
 
 app = Flask(__name__)
