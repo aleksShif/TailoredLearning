@@ -7751,3 +7751,7 @@ a.thumbnail image {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important;
 }
+
+.menu-text{
+  color: black;
+}
