@@ -15,9 +15,18 @@
     <script>
         const socket = io();
 
+        socket.on('connect', () => {
+            console.log("Connected to WebSocket server");
+        });
+
+        socket.on('disconnect', () => {
+            console.log("Disconnected from WebSocket server");
+        });
+
         function joinRoom() {
             const username = document.getElementById('username').value;
             const room = "{{ room_id }}";
+            console.log(`Joining room: ${room} as ${username}`);
             socket.emit('join', {username: username, room: room});
         }
 
