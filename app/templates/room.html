@@ -27,7 +27,7 @@
             const username = document.getElementById('username').value;
             const room = "{{ room_id }}";
             console.log(`Joining room: ${room} as ${username}`);
-            socket.broadcast.emit('join', {username: username, room: room});
+            socket.emit('join', {username: username, room: room});
         }
 
         socket.on('message', function(msg) {
