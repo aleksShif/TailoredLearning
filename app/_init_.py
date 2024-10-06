@@ -61,6 +61,13 @@ def login():
         return redirect('/')
     return render_template('login.html')
 
+@app.route('/quiz', methods=['GET'])
+def quizroom():
+    if 'username' in session:
+        return render_template('quizroom.html', username=session["username"])
+    return render_template('quizroom.html')  
+
+
 @app.route('/logout')
 def logout():
     session.pop('username')

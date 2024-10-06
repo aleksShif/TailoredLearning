@@ -10,7 +10,7 @@
           background-color: rgb(50, 185, 223); 
         }
         .top-bar, .top-bar ul, .top-bar-left, .menu-text, .menu {
-          background-color:rgb(50, 185, 223);
+          background-color: white;
         }
         a.nav-link:link {
           color: hsl(290, 73%, 45%);
@@ -184,6 +184,70 @@
   border: none; /* Remove any border */
   display: inline-block; /* Ensure it behaves like a block-level element */
 }
+.top-bar {
+  background-color: white;
+}
+
+.top-bar-right .menu a.nav-link {
+  background-color: #4169e1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-bar-right .menu a.nav-link.signup {
+  background-color: #cccccc;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-bar-right .menu a.nav-link:hover {
+  background-color: #365899;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right .menu a.nav-link.signup:hover {
+  background-color: #b0b0b0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.play-now-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    transform: translate(10%, 0%);
+}
+
+.play-now-button:hover {
+    background-color: #218838;
+}
+h1 {
+    margin-bottom: 20px; /* Add space below heading */
+    font-weight: bolder; /* Bolder font */
+  }
+
+        h3 {
+          font-weight: bold; /* Bolder font */
+        }
+
+        ul {
+          font-weight: bold; /* Bolder font for list */
+          list-style-type: disc; /* Bullet points */
+          padding-left: 20px; /* Indent for list */
+        }
+
+        li {
+          margin-bottom: 10px; /* Space between list items */
+        }
     </style>
   </head>
   <body>
@@ -203,21 +267,25 @@
       </div>
       <div class="top-bar-right">
         <ul class="menu">
-          <li><a href="/login" class="nav-link">Login</a></li>
-          <li><a href="/logout" class="nav-link">Log Out</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
         </ul>
       </div>
     </div>
     <!-- End Top Bar -->
 
 
+    <div style="background-color:rgba(28, 190, 235, 0.5)">
+      <h1><strong>Study Smarter, Together: </strong></h1>
+      <h1>Turn Learning into Friendly Competition</h1>
+      <h3>Challenge a friend, and boost your knowledge through fund, competitive study rooms!</h3>
+      <p><a href="flashcard.html" class="play-now-button">Play Now!</a></p>
+      <ul>
+        <li>Improved Retention: Engaging in competitive study sessions helps reinforce knowledge, leading to better long-term retention of information.</li>
 
-    <div style="background-color:rgb(28, 190, 235)">
-      <h1>About Us</h1>
-      <p>Create private 2-player rooms with your friends!</p>
-      <form action="/create_room" method="post">
-        <button type="submit">Create Game Room</button>
-    </form>
+        <li>Enhanced Collaboration: Working together with peers fosters a sense of community and encourages collaborative problem-solving, making learning more enjoyable.</li>    
+        <li>Motivation Through Gamification: Incorporating game-like elements into studying, such as challenges and rewards, motivates learners to stay engaged and strive for improvement.</li>      
+      </ul>
     </div>
 
 
@@ -225,16 +293,16 @@
   <div>
     <div class="row expand-column-wrapper small-up-2">
       <div class="column column-block">
-        <p class="expand-column-content">Test1</p> 
+        <p class="expand-column-content"><a href="/quiz" class="nav-link">Test1</a></p> 
       </div>
       <div class="column column-block">
-        <p class="expand-column-content">Test1</p>
+        <p class="expand-column-content"><a href="/quiz" class="nav-link">Test1</a></p>
       </div>
       <div class="column column-block">
-        <p class="expand-column-content">Test1</p>
+        <p class="expand-column-content"><a href="/quiz" class="nav-link">Test1</a></p>
       </div>
       <div class="column column-block">
-        <p class="expand-column-content">Test1</p>
+        <p class="expand-column-content"><a href="/quiz" class="nav-link">Test1</a></p>
       </div>
     </div> 
     <!-- <div class="row expand-column-wrapper" style="padding-top: 10px"> -->
