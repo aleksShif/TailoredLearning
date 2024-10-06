@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Room</title>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Game Room: {{ room_id }}</h1>
+    <p>Share this URL to invite others: {{ request.url }}</p>
+    <input type="text" id="username" placeholder="Enter your name">
+    <button onclick="joinRoom()">Join Room</button>
+    <ul id="messages"></ul>
+    <script>
+        const socket = io();
+
+        function joinRoom() {
+            const username = document.getElementById('username').value;
+            const room = "{{ room_id }}";
+            socket.emit('join', {username: username, room: room});
+        }
+
+        socket.on('message', function(msg) {
+            const li = document.createElement('li');
+            li.textContent = msg;
+            document.getElementById('messages').appendChild(li);
+        });
+    </script>
+</body>
+</html>
