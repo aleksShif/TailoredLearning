@@ -6,9 +6,12 @@
     <title>Tailored Learning Home</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <style>
-      .top-bar, .top-bar ul, .top-bar-left, .menu-text, .menu {
-        background-color:rgb(50, 185, 223);
-      }
+        .body {
+          background-color: rgb(50, 185, 223); 
+        }
+        .top-bar, .top-bar ul, .top-bar-left, .menu-text, .menu {
+          background-color:rgb(50, 185, 223);
+        }
         a.nav-link:link {
           color: hsl(290, 73%, 45%);
           text-decoration: none;
@@ -25,6 +28,86 @@
           color: #fb3f00;
           text-decoration: none;
         }
+        .row {
+          background-color:rgb(50, 185, 223);
+          height: 300px;
+          width: 75%;
+        }
+        .expand-column-wrapper{
+          height: 50vh;
+          max-width: 75rem;
+        }
+        .expand-column-wrapper .column.column-block {
+          padding: 1rem;
+          transition: all 0.5s ease-in-out;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-align-items: center;
+              -ms-flex-align: center;
+                  align-items: center;
+          -webkit-justify-content: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+        }
+
+        .expand-column-wrapper .column.column-block:hover {
+          -webkit-flex-basis: 40%;
+              -ms-flex-preferred-size: 40%;
+                  flex-basis: 40%;
+        }
+
+        .expand-column-wrapper .column.column-block:hover .expand-column-content {
+          opacity: 1;
+        }
+
+        .expand-column-wrapper .expand-column-content {
+          color: #fefefe;
+          font-weight: bold;
+          opacity: 0;
+          transition: all 0.5s ease-in-out;
+        }
+        .column.column-block{
+          &:nth-of-type(1){
+          background: url("https://thedigitaladda.com/wp-content/uploads/Data-Structure-Algorithms.png") center center no-repeat;
+          background-size: cover;
+          padding-right: 10px;
+          padding-left: 10px;
+          height: 150px; 
+          box-shadow: 20px 20px 50px grey;
+        }
+          &:nth-of-type(2){
+          background: url("https://www.zybooks.com/wp-content/uploads/2004/05/discrete-mathematics-catalog-490x600.png") center center no-repeat;
+          background-size: cover;
+          padding-right: 10px;
+          padding-left: 10px;
+          height: 150px; 
+          box-shadow: 20px 20px 50px grey;
+        }
+        &:nth-of-type(3){
+          background: url("https://news.stanford.edu/__data/assets/image/0023/136508/Stnaford_EightSimpleThings_3000x1000-scaled.jpg.jpeg") center center no-repeat;
+          background-size: cover;
+          padding-right: 10px;
+          padding-left: 10px;
+          height: 150px; 
+          box-shadow: 20px 20px 50px grey;
+        }
+        &:nth-of-type(4){
+          background: url("https://thedigitaladda.com/wp-content/uploads/Data-Structure-Algorithms.png") center center no-repeat;
+          background-size: cover;
+          padding-right: 10px;
+          padding-left: 10px;
+          height: 150px; 
+          box-shadow: 20px 20px 50px grey;
+        }
+      }
+        @media screen and (max-width: 39.9375em) {
+          .expand-column-wrapper {
+            -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                flex-direction: column;
+        }
+}
     </style>
   </head>
   <body>
@@ -48,30 +131,52 @@
     <!-- End Top Bar -->
 
 
-    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-      <ul class="orbit-container">
-        <button class="orbit-previous" aria-label="previous"><span class="show-for-sr">Previous Slide</span>&#9664;</button>
-        <button class="orbit-next" aria-label="next"><span class="show-for-sr">Next Slide</span>&#9654;</button>
-        <li class="orbit-slide is-active">
-          <img src="https://thedigitaladda.com/wp-content/uploads/Data-Structure-Algorithms.png" style="vertical-align: middle;">
-        </li>
-        <li class="orbit-slide">
-          <img src="https://placehold.it/2000x750">
-        </li>
-        <li class="orbit-slide">
-          <img src="https://placehold.it/2000x750">
-        </li>
-        <li class="orbit-slide">
-          <img src="https://placehold.it/2000x750">
-        </li>
-      </ul>
+
+    <div style="background-color:rgb(28, 190, 235)">
+      <h1>About Us</h1>
+      <p>Create private 2-player rooms with your friends!</p>
     </div>
 
 
-    <div class="row column text-center">
-      <h4>Play Against a Friend</h4>
-      <p>Join a game and challenge a friend!</p>
-      <a href="flashcard.html" class="button primary">Play Now</a>
+<div style="background-color:rgb(139, 214, 235)">
+  <div>
+    <div class="row expand-column-wrapper small-up-2">
+      <div class="column column-block">
+        <p class="expand-column-content">Test1</p> 
+      </div>
+      <div class="column column-block">
+        <p class="expand-column-content">Test1</p>
+      </div>
+      <div class="column column-block">
+        <p class="expand-column-content">Test1</p>
+      </div>
+      <div class="column column-block">
+        <p class="expand-column-content">Test1</p>
+      </div>
+    </div> 
+    <!-- <div class="row expand-column-wrapper" style="padding-top: 10px"> -->
+      <!-- <div class="grid-x grid-margin-x">
+        <div class="columns small-4 small-centered">
+          <p class="expand-column-content">Test1</p>
+        </div>
+        <div class="columns small-4 small-centered">
+          <p class="expand-column-content">Test2</p>
+        </div>
+      </div>
+    </div>
+     <div class="row expand-column-wrapper">
+      <div class="columns small-4 small-centered">
+        <p class="expand-column-content">Test1</p>  
+      </div>
+      <div class="columns small-4 small-centered">
+        <p class="expand-column-content">Test3</p>
+      </div> 
+    </div> -->
+  </div>
+
+    <!-- <div class="row column text-center"> 
+      <h2>Our Newest Products</h2>
+      <hr>
     </div>
  
 
@@ -273,7 +378,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
@@ -281,4 +386,4 @@
       $(document).foundation();
     </script>
   </body>
-</html>
+</html> 

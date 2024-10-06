@@ -23,7 +23,6 @@ def signup():
 def login():
     if 'username' in session: 
         if not db.check_user_exists(session['username']): 
-            print('error passed', file=sys.stderr)
             return redirect('/logout')
         return redirect('/')
     return render_template('login.html')
@@ -41,7 +40,7 @@ def authorize_login():
     password = request.form['password']
 
     if not db.verify_login(user, password):
-        return render_template('login.html', status='error')
+        return render_template('login.html')
 
     session['username'] = user
     return redirect('/')
