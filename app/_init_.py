@@ -1,17 +1,32 @@
 # make sure to pip install flask first
+import os
 from flask import Flask, request, session, redirect, render_template, url_for
 from flask_socketio import SocketIO, send, join_room, leave_room
 import uuid
 import sys
 import db 
+import ai
 
 app = Flask(__name__)
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 app.secret_key = "HI"
-db.db_table_inits()
+count = db.db_table_inits()
+
+def ai_run():
+    if (count == 0): 
+        for i in range(2): 
+            ai.parse("C++ data structures and algorithms?")
+        for i in range(2): 
+            ai.parse("Environment?")
+        for i in range(2):
+            ai.parse("Linear Algebra?")
+        for i in range(2):
+            ai.parse("Psychology?")
+
+ai_run()
 
 rooms = {}
-
+1
 @app.route('/create_room', methods=['POST'])
 def create_room():
     room_id = str(uuid.uuid4())
@@ -27,11 +42,10 @@ def join_room_view(room_id):
 @socketio.on('join')
 def on_join(data):
     username = data['username']
-    room = data['room']
     print(f"User {username} is joining room {room}")
+    room = data['room']
     join_room(room)
     send(f'{username} has entered the room.', to=room)
-    socketio.emit('join_response', {'message': f'Welcome {username} to room {room}'}, to=room)
 
 @socketio.on('leave')
 def on_leave(data):
@@ -41,14 +55,10 @@ def on_leave(data):
     leave_room(room)
     send(f'{username} has left the room.', to=room)
 
-@socketio.on('disconnect')
-def handle_disconnect():
-    print('User disconnected')
-
-
-
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable or default to 5000
+    print(f"Starting server on port {port}")  # Logging the current port
+    socketio.run(app, debug=True, host='0.0.0.0', port=port)
 
 @app.route('/', methods=['GET', 'POST'])
 def home(): 
@@ -70,30 +80,12 @@ def login():
         return redirect('/')
     return render_template('login.html')
 
-@app.route('/dataquiz', methods=['GET'])
-def data_quizroom():
+@app.route('/quiz', methods=['GET'])
+def quizroom():
     if 'username' in session:
-        data_questions = db.get_data_questions()
-        return render_template('data_quizroom.html', username=session["username"])
-    return render_template('data_quizroom.html')  
+        return render_template('quizroom.html', username=session["username"])
+    return render_template('quizroom.html')  
 
-@app.route('/envquiz', methods=['GET'])
-def env_quizroom():
-    if 'username' in session:
-        return render_template('env_quizroom.html', username=session["username"])
-    return render_template('env_quizroom.html')  
-
-@app.route('/mathquiz', methods=['GET'])
-def math_quizroom():
-    if 'username' in session:
-        return render_template('math_quizroom.html', username=session["username"])
-    return render_template('math_quizroom.html')
-
-@app.route('/psychquiz', methods=['GET'])
-def psych_quizroom():
-    if 'username' in session:
-        return render_template('psych_quizroom.html', username=session["username"])
-    return render_template('psych_quizroom.html')
 
 @app.route('/logout')
 def logout():
