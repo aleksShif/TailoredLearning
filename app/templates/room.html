@@ -37,19 +37,9 @@
             document.getElementById('messages').appendChild(li);
         });
 
-        socket.on('join_response', function(data) {
-            console.log(`Received join response: ${data.message}`);
-            const li = document.createElement('li');
-            li.textContent = `Join Response: ${data.message}`;
-            document.getElementById('messages').appendChild(li);
-        });
-
-        socket.on('response', function(data) {
-            console.log(`Received response: ${data.data}`);
-            const li = document.createElement('li');
-            li.textContent = `Response: ${data.data}`;
-            document.getElementById('messages').appendChild(li);
-        });
+        socket.on('join_response', (data) => {
+                console.log(data.message);
+            });
     </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ import sys
 import db 
 
 app = Flask(__name__)
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app)
 app.secret_key = "HI"
 db.db_table_inits()
 
@@ -31,6 +31,7 @@ def on_join(data):
     print(f"User {username} is joining room {room}")
     join_room(room)
     send(f'{username} has entered the room.', to=room)
+    socketio.emit('join_response', {'message': f'Welcome {username} to room {room}'}, to=room)
 
 @socketio.on('leave')
 def on_leave(data):
@@ -39,6 +40,12 @@ def on_leave(data):
     print(f"User {username} is leaving room {room}")
     leave_room(room)
     send(f'{username} has left the room.', to=room)
+
+@socketio.on('disconnect')
+def handle_disconnect():
+    print('User disconnected')
+
+
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
