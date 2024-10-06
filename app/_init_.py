@@ -27,6 +27,7 @@ def join_room_view(room_id):
 @socketio.on('join')
 def on_join(data):
     username = data['username']
+    print(f"User {username} is joining room {room}")
     room = data['room']
     join_room(room)
     send(f'{username} has entered the room.', to=room)
@@ -35,6 +36,7 @@ def on_join(data):
 def on_leave(data):
     username = data['username']
     room = data['room']
+    print(f"User {username} is leaving room {room}")
     leave_room(room)
     send(f'{username} has left the room.', to=room)
 
