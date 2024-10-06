@@ -1,11 +1,45 @@
 # make sure to pip install flask first
-from flask import Flask, request, session, redirect, render_template
+from flask import Flask, request, session, redirect, render_template, url_for
+from flask_socketio import SocketIO, send, join_room, leave_room
+import uuid
 import sys
 import db 
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 app.secret_key = "HI"
 db.db_table_inits()
+
+rooms = {}
+1
+@app.route('/create_room', methods=['POST'])
+def create_room():
+    room_id = str(uuid.uuid4())
+    rooms[room_id] = []
+    return redirect(url_for('join_room_view', room_id=room_id))
+
+@app.route('/room/<room_id>')
+def join_room_view(room_id):
+    if room_id not in rooms:
+        return "Room not found", 404
+    return render_template('room.html', room_id=room_id)
+
+@socketio.on('join')
+def on_join(data):
+    username = data['username']
+    room = data['room']
+    join_room(room)
+    send(f'{username} has entered the room.', to=room)
+
+@socketio.on('leave')
+def on_leave(data):
+    username = data['username']
+    room = data['room']
+    leave_room(room)
+    send(f'{username} has left the room.', to=room)
+
+if __name__ == '__main__':
+    socketio.run(app, debug=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def home(): 
