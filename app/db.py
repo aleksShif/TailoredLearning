@@ -17,8 +17,9 @@ def db_table_inits():
     # Creates users table if it doesn't exist
     c = db_connect()
     c.execute("CREATE TABLE IF NOT EXISTS users (username text, password text)")
+    c.execute("CREATE TABLE IF NOT EXISTS questions (questions text, answer1 text, answer2 text, answer3 text, answer4 text, correct text)")
     db_close()
-
+    
 def create_user(username, password):
     c = db_connect()
     c.execute('INSERT INTO users values (?,?)', (username, password))
@@ -39,3 +40,8 @@ def verify_login(username, password):
     if user:
         return True
     return False
+
+def add_question(questions, answer1, answer2, answer3, answer4, correct):
+    c = db_connect()
+    c.execute('INSERT INTO questions values (?, ?, ?, ?, ?, ?)',(questions, answer1, answer2, answer3, answer4, correct))
+    db_close()

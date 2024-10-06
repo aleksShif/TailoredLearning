@@ -36,7 +36,6 @@ def logout():
 def authorize_login():
     if request.method != 'POST':
         return redirect('/')
-    
     user = request.form['username']
     password = request.form['password']
 
