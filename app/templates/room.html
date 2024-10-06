@@ -14,6 +14,9 @@
     <ul id="messages"></ul>
     <script>
         const socket = io();
+        console.log("Socket object:", socket);
+        console.log("Socket ID:", socket.id);
+        console.log("Socket connected:", socket.connected);
 
         socket.on('connect', () => {
             console.log("Connected to WebSocket server");
@@ -27,6 +30,9 @@
             const username = document.getElementById('username').value;
             const room = "{{ room_id }}";
             console.log(`Joining room: ${room} as ${username}`);
+            console.log("Socket object:", socket);
+            console.log("Socket ID:", socket.id);
+            console.log("Socket connected:", socket.connected);
             socket.emit('join', {username: username, room: room});
         }
 

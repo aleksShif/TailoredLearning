@@ -11,7 +11,7 @@ app.secret_key = "HI"
 db.db_table_inits()
 
 rooms = {}
-1
+
 @app.route('/create_room', methods=['POST'])
 def create_room():
     room_id = str(uuid.uuid4())
