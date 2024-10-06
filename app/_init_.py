@@ -42,9 +42,7 @@ def on_leave(data):
     send(f'{username} has left the room.', to=room)
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable or default to 5000
-    print(f"Starting server on port {port}")  # Logging the current port
-    socketio.run(app, debug=True, host='0.0.0.0', port=port)
+    socketio.run(app, debug=True)
 
 @app.route('/', methods=['GET', 'POST'])
 def home(): 
