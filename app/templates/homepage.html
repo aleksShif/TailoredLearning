@@ -10,7 +10,7 @@
           background-color: rgb(50, 185, 223); 
         }
         .top-bar, .top-bar ul, .top-bar-left, .menu-text, .menu {
-          background-color:rgb(50, 185, 223);
+          background-color: white;
         }
         a.nav-link:link {
           color: hsl(290, 73%, 45%);
@@ -184,6 +184,38 @@
   border: none; /* Remove any border */
   display: inline-block; /* Ensure it behaves like a block-level element */
 }
+.top-bar {
+  background-color: white;
+}
+
+.top-bar-right .menu a.nav-link {
+  background-color: #4169e1;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-bar-right .menu a.nav-link.signup {
+  background-color: #cccccc;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.top-bar-right .menu a.nav-link:hover {
+  background-color: #365899;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.top-bar-right .menu a.nav-link.signup:hover {
+  background-color: #b0b0b0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
     </style>
   </head>
   <body>
@@ -204,7 +236,7 @@
       <div class="top-bar-right">
         <ul class="menu">
           <li><a href="login.html" class="nav-link">Login</a></li>
-          <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+          <li><a href="signup.html" class="nav-link signup">Sign Up</a></li>
         </ul>
       </div>
     </div>
@@ -213,8 +245,18 @@
 
 
     <div style="background-color:rgb(28, 190, 235)">
-      <h1>About Us</h1>
-      <p>Create private 2-player rooms with your friends!</p>
+      <h1>Study Smarter, Together: </h1>
+      <h1>Turn Learning into Friendly Competition</h1>
+      <h3>Challenge a friend, and boost your knowledge through fund, competitive study rooms!</h3>
+      <li><a href="flashcard.html">Play Now!</a></li>
+      <ul>
+        <li>Improved Retention: Engaging in competitive study sessions helps reinforce knowledge, leading to better long-term retention of information.
+
+        <li>Enhanced Collaboration: Working together with peers fosters a sense of community and encourages collaborative problem-solving, making learning more enjoyable.
+        </li>    
+        <li>Motivation Through Gamification: Incorporating game-like elements into studying, such as challenges and rewards, motivates learners to stay engaged and strive for improvement.</li>
+      </li>      
+      </ul>
     </div>
 
 
