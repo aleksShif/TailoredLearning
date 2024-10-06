@@ -63,3 +63,22 @@ def add_psych_question(questions, answer1, answer2, answer3, answer4, correct):
     c = db_connect()
     c.execute('INSERT INTO psych_questions values (?, ?, ?, ?, ?, ?)',(questions, answer1, answer2, answer3, answer4, correct))
     db_close()
+
+def get_data_questions():
+    c = db_connect()
+    result = c.execute("SELECT * FROM data_questions")
+    rows = result.fetchall()
+    questions = []
+    for r in rows:
+        questions.append(r[0])
+        print(r[0])
+
+
+def get_data_questionset(questions):
+    c = db_connect()
+    result = c.execute('SELECT * FROM data_questions WHERE questions=?', (questions))
+    data_question = result.fetchall()
+    db_close()
+    return data_question
+
+print(get_data_questions())
