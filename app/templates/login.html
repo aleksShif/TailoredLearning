@@ -8,7 +8,7 @@
             border: 3.5px solid rgb(31, 111, 120);
             padding: 1rem;
             border-radius: 1;
-            box-shadow: 10px rgba(31, 111, 120,0.5);
+            box-shadow: 20px 20px 50px grey;  
             margin-top: 2rem;
             padding-left: 2rem;
             padding-right:2rem;
@@ -17,7 +17,7 @@
         .container{
             display: flex;
             align-items: center;
-            justify-content: center;            
+            justify-content: center;          
         }
 
     </style>
@@ -33,16 +33,16 @@
 
 <body>
     <div class="container">
-        {% if status == 'error' %}
+        <!-- {% if status == 'error' %}
         The wrong username or password was entered.
-        {% endif %}
+        {% endif %} -->
         <form class="log-in-form" action="/auth/login" method="POST">
             <h4 class="text-center">Sign in</h4>
             <label>Username
-              <input type="text" placeholder="Username">
+              <input type="text" name="username" placeholder="Username">
             </label>
             <label>Password
-              <input type="password" placeholder="Password">
+              <input type="password" name="password" placeholder="Password">
             </label>
             <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
             <p><input type="submit" class="button expanded" value="Log in"></input></p>
