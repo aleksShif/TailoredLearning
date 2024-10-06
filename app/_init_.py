@@ -2,10 +2,12 @@
 from flask import Flask, request, session, redirect, render_template
 import sys
 import db 
+import azdb
 
 app = Flask(__name__)
 app.secret_key = "HI"
-db.db_table_inits()
+#db.db_table_inits()
+azdb.azdb_table_inits()
 
 @app.route('/', methods=['GET', 'POST'])
 def home(): 
@@ -22,7 +24,7 @@ def signup():
 @app.route('/login', methods=['GET'])
 def login():
     if 'username' in session: 
-        if not db.check_user_exists(session['username']): 
+        if not azdb.check_user_exists(session['username']): 
             print('error passed', file=sys.stderr)
             return redirect('/logout')
         return redirect('/')
@@ -40,7 +42,7 @@ def authorize_login():
     user = request.form['username']
     password = request.form['password']
 
-    if not db.verify_login(user, password):
+    if not azdb.verify_login(user, password):
         return render_template('login.html', status='error')
 
     session['username'] = user
@@ -54,12 +56,12 @@ def authorize_signup():
     user = request.form['username']
     password = request.form['password']
 
-    if db.check_user_exists(user):
+    if azdb.check_user_exists(user):
         return render_template("signup.html", error="user_exists")
     
     if password != request.form['confirmation']:
         return render_template("signup.html", error="unmatched_pass")
     
-    db.create_user(user, password)
+    azdb.create_user(user, password)
     session['username'] = user
     return redirect('/')
