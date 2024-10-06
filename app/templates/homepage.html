@@ -107,6 +107,82 @@
               -ms-flex-direction: column;
                 flex-direction: column;
         }
+
+        .top-bar-left .menu-text a {
+  color: black !important; /* Force black color */
+  text-decoration: none;
+}
+
+.top-bar-left .menu-text a:link,
+.top-bar-left .menu-text a:visited {
+  color: black !important; /* Force black color */
+}
+
+.top-bar-left .menu-text a:hover,
+.top-bar-left .menu-text a:active {
+  color: darkgray !important; /* Force hover/active color */
+}
+}
+
+.top-bar-left .menu-text a {
+  color: black !important; /* Set the link color to black */
+  text-decoration: none;   /* Optional: remove underline */
+}
+
+.top-bar-left .menu-text a:link,
+.top-bar-left .menu-text a:visited {
+  color: black !important; /* Ensure it's black even for visited links */
+}
+
+.top-bar-left .menu-text a:hover,
+.top-bar-left .menu-text a:active {
+  color: black !important; /* Maintain black color on hover and active states */
+}
+
+.top-bar-left .menu-text a {
+    color: black !important;
+    font-family: 'Verdana', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #4169e1;
+    border-radius: 5px;
+  
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .top-bar-left .menu-text a:hover {
+    background-color: #cccccc;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .top-bar-left .menu-text a:active {
+    background-color: #b0b0b0;
+  }
+
+  .button-image {
+  width: 75px; 
+  height: auto; 
+  border-radius: 75%; 
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+}
+
+.button-image:hover {
+  transform: scale(1.05); 
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); 
+}
+
+.button-image:active {
+  transform: scale(0.95); 
+}
+.top-bar-left .menu-text a {
+  padding: 0; /* Remove padding */
+  background-color: transparent; /* Remove any background */
+  border: none; /* Remove any border */
+  display: inline-block; /* Ensure it behaves like a block-level element */
 }
     </style>
   </head>
@@ -116,7 +192,11 @@
     <div class="top-bar">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="menu-text">Welcome!</li>
+          <li class="menu-text">
+            <a href="homepage.html">
+              <img src="tailoredlearninglogo-1.png" alt="Tailored Learning Button" class="button-image">
+            </a>
+          </li>
           <li><a href="#">One</a></li>
           <li><a href="#">Two</a></li>
         </ul>
