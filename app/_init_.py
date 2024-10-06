@@ -1,5 +1,4 @@
 # make sure to pip install flask first
-import os
 from flask import Flask, request, session, redirect, render_template, url_for
 from flask_socketio import SocketIO, send, join_room, leave_room
 import uuid
@@ -28,8 +27,8 @@ def join_room_view(room_id):
 @socketio.on('join')
 def on_join(data):
     username = data['username']
-    print(f"User {username} is joining room {room}")
     room = data['room']
+    print(f"User {username} is joining room {room}")
     join_room(room)
     send(f'{username} has entered the room.', to=room)
 
