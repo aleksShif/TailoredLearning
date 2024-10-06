@@ -70,12 +70,30 @@ def login():
         return redirect('/')
     return render_template('login.html')
 
-@app.route('/quiz', methods=['GET'])
-def quizroom():
+@app.route('/dataquiz', methods=['GET'])
+def data_quizroom():
     if 'username' in session:
-        return render_template('quizroom.html', username=session["username"])
-    return render_template('quizroom.html')  
+        data_questions = db.get_data_questions()
+        return render_template('data_quizroom.html', username=session["username"])
+    return render_template('data_quizroom.html')  
 
+@app.route('/envquiz', methods=['GET'])
+def env_quizroom():
+    if 'username' in session:
+        return render_template('env_quizroom.html', username=session["username"])
+    return render_template('env_quizroom.html')  
+
+@app.route('/mathquiz', methods=['GET'])
+def math_quizroom():
+    if 'username' in session:
+        return render_template('math_quizroom.html', username=session["username"])
+    return render_template('math_quizroom.html')
+
+@app.route('/psychquiz', methods=['GET'])
+def psych_quizroom():
+    if 'username' in session:
+        return render_template('psych_quizroom.html', username=session["username"])
+    return render_template('psych_quizroom.html')
 
 @app.route('/logout')
 def logout():
